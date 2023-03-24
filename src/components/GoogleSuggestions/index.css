@@ -1,0 +1,125 @@
+/* Write your CSS here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.img {
+  width: 400px;
+}
+.d {
+  display: flex;
+  height: 100%;
+}
+.bg {
+  box-shadow: 0px 4px 16px 0px #bfbfbf;
+  border-radius: 20px;
+  margin-bottom: 0px;
+  width: 140%;
+}
+.img1 {
+  width: 2vw;
+  height: 2vw;
+  margin: 0px 0.5vw;
+}
+.inp {
+  outline: none;
+  width: 140%;
+  height: 3.5vw;
+  font-size: large;
+  border-radius: 20px;
+  margin-top: 0px;
+  padding: 0px 1vw;
+  border: none;
+  outline: none;
+}
+.new {
+  margin-bottom: 0px;
+  position: relative;
+  width: 140%;
+}
+.main {
+  position: fixed;
+  width: 90vw;
+  height: 90vh;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5vw;
+  margin-top: 1%;
+}
+.over {
+  overflow: hidden;
+  width: 140%;
+  margin-left: 0px;
+  border-bottom-left-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+  box-shadow: 0px -2px 3px 2px #efefef;
+  margin-top: 0px;
+}
+.bg1 {
+  box-shadow: 0px 4px 16px 0px #bfbfbf;
+  border-radius: 20px;
+  margin-bottom: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.inp1 {
+  outline: none;
+  width: 35vw;
+  height: 3.5vw;
+  border-radius: 20px;
+  font-size: large;
+  margin: 0px 1vw;
+  padding: 0px 1vw;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.bgs {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+@media screen and (max-width: 576px) {
+  .bg {
+    box-shadow: 0px 4px 16px 0px #bfbfbf;
+    border-radius: 20px;
+    margin-bottom: 0px;
+    width: 100%;
+  }
+  .over {
+    overflow: hidden;
+    width: 100%;
+    margin-left: 0px;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    box-shadow: 0px -2px 3px 2px #efefef;
+    margin-top: 0px;
+    font-size: 10px;
+  }
+  .inp {
+    outline: none;
+    width: 130%;
+    height: 5.5vw;
+    font-size: 10px;
+    border-radius: 20px;
+    margin-top: 0px;
+    padding: 0px 1vw;
+    border: none;
+    outline: none;
+  }
+
+  .d {
+    display: flex;
+    height: 60%;
+  }
+
+  .img {
+    width: 300px;
+  }
+
+  .img1 {
+    width: 5vw;
+    height: 5vw;
+    margin: 0px 0.5vw;
+  }
+}
