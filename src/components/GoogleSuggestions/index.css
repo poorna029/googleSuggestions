@@ -8,29 +8,6 @@
 .d {
   display: flex;
   height: 100%;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  margin-top: 7%;
-  width: 100%;
-  background-color: white;
-}
-.p {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* margin-top: 1vw; */
-  width: 100%;
-  /* box-shadow: 0px 1px 4px 0px #bfbfbf; */
-  border-radius: 20px;
-}
-
-.p-border {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom: 0px;
-  background-color: white;
-  /* box-shadow: 0px 0px 4px 0px #bfbfbf; */
 }
 .bg {
   box-shadow: 0px 4px 16px 0px #bfbfbf;
@@ -39,15 +16,14 @@
   width: 140%;
 }
 .img1 {
-  position: initial;
   width: 2vw;
   height: 2vw;
   margin: 0px 0.5vw;
 }
 .inp {
   outline: none;
+  width: 140%;
   height: 3.5vw;
-  width: 100%;
   font-size: large;
   border-radius: 20px;
   margin-top: 0px;
@@ -59,7 +35,6 @@
   margin-bottom: 0px;
   position: relative;
   width: 140%;
-  margin: auto;
 }
 .main {
   position: fixed;
@@ -74,17 +49,13 @@
 }
 .over {
   overflow: hidden;
-  width: 100%;
+  width: 140%;
   margin-left: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  /* box-shadow: 0px -2px 3px 2px #efefef; */
+  border-bottom-left-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+  box-shadow: 0px -2px 3px 2px #efefef;
   margin-top: 0px;
 }
-.over-border {
-  box-shadow: 0px 0px 3px 2px #efefef;
-}
-
 .bg1 {
   box-shadow: 0px 4px 16px 0px #bfbfbf;
   border-radius: 20px;
@@ -107,17 +78,48 @@
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-.superClass {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  margin-top: 10px;
-  width: 50%;
-  background-color: white;
-  box-shadow: 0px 1px 4px 0px #bfbfbf;
-  border-radius: 20px;
-}
+
 @media screen and (max-width: 576px) {
+  .bg {
+    box-shadow: 0px 4px 16px 0px #bfbfbf;
+    border-radius: 20px;
+    margin-bottom: 0px;
+    width: 100%;
+  }
+  .over {
+    overflow: hidden;
+    width: 100%;
+    margin-left: 0px;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    box-shadow: 0px -2px 3px 2px #efefef;
+    margin-top: 0px;
+    font-size: 10px;
+  }
+  .inp {
+    outline: none;
+    width: 130%;
+    height: 5.5vw;
+    font-size: 10px;
+    border-radius: 20px;
+    margin-top: 0px;
+    padding: 0px 1vw;
+    border: none;
+    outline: none;
+  }
+
+  .d {
+    display: flex;
+    height: 60%;
+  }
+
+  .img {
+    width: 300px;
+  }
+
+  .img1 {
+    width: 5vw;
+    height: 5vw;
+    margin: 0px 0.5vw;
+  }
 }

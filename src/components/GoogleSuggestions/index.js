@@ -1,41 +1,41 @@
-// Write your code here
 import './index.css'
-import {Component} from 'react'
+import {useState} from 'react'
+
 import SuggestionItem from '../SuggestionItem/index'
 
-class GoogleSuggestions extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {list: props.suggestionsList, suggestion: ''}
-  }
-
-  fn = e => {
-    console.log(e.target.value)
+const GoogleSuggestions = props => {
+  const {suggestionsList} = props
+  const [search, setSearch] = useState({
+    list: suggestionsList,
+    len: 0,
+    suggestion: '',
+  })
+  const fn = e => {
     if (e.target.value.length > 0) {
-      const {list} = this.state
-      const a = list.filter(j =>
+      const a = suggestionsList.filter(j =>
         j.suggestion.toLowerCase().includes(e.target.value.toLowerCase()),
       )
-      console.log(e.target.value.length)
       const sg = new Set(e.target.value.toLowerCase().split(''))
 
+      //   const b = console.log(e.target.value.length)
+      //   console.log(a)
       if (a.length < 2) {
         const obj = []
         let obj1 = []
-        list.forEach(set => {
+        suggestionsList.forEach(set => {
           const sn = new Set(set.suggestion)
           const sO = new Set([...sn].filter(x => sg.has(x)))
           obj.push(sO.size)
           obj1 = [...obj]
         })
-        // console.log(obj.sort((first, second) => second - first))
-        // console.log(obj1, obj)
+        console.log(obj.sort((first, second) => second - first))
+        console.log(obj1, obj)
         const firstVal = obj[0]
         const secVal = obj[1]
         const firstValInd = obj1.indexOf(firstVal)
         const newList = []
         let secValInd = obj1.indexOf(secVal)
-        newList.push(list[firstValInd])
+        newList.push(suggestionsList[firstValInd])
         if (firstValInd === secValInd) {
           console.log('same')
           for (let i = 0; i < obj.length; i += 1) {
@@ -45,47 +45,35 @@ class GoogleSuggestions extends Component {
             }
           }
         }
-
-        newList.push(list[secValInd])
-        console.log(newList)
-        this.setState({list: newList, suggestion: e.target.value})
+        newList.push(suggestionsList[secValInd])
+        setSearch({list: newList, len: e.target.value.length})
       } else {
-        this.setState({list: a, suggestion: e.target.value})
-        // console.log(a)
+        setSearch({list: a, len: e.target.value.length})
       }
+
+      //   console.log(suggestionsList[firstValInd], suggestionsList[secValInd])
     } else if (e.target.value.length === 0) {
-      const {suggestionsList} = this.props
-      this.setState({list: suggestionsList, suggestion: ''})
+      setSearch({list: [], len: 0})
     }
   }
+  const bgs = search.list.length > 0 ? 'bgs' : ''
 
-  f2 = p => {
-    this.setState({suggestion: p})
+  const f2 = p => {
+    setSearch({...search, suggestion: p})
   }
 
-  render() {
-    const {list, suggestion} = this.state
-
-    console.log(list)
-    // this.setState({list: suggestionsList})
-    // console.log(list)
-    // const a = list.filter(j =>
-    //   j.suggestion.toLowerCase().includes(list.toLowerCase()),
-    // )
-    // console.log(a)
-
-    const b = list.length > 0 ? 'p-border' : ''
-    const bor = list.length > 0 ? 'over-border' : ''
-
-    return (
-      <div className="d">
+  return (
+    <div className="d-flex flex-row align-items-start justify-content-center main bg-white ">
+      <div className="d-flex flex-col justify-content-center align-items-center d ">
         <img
           src="https://assets.ccbp.in/frontend/react-js/google-logo.png"
           alt="google logo"
           className="img"
         />
-        <div className="superClass">
-          <div className={`p ${b}`}>
+        <div className="d-flex flex-col justify-content-center align-items-center new ">
+          <div
+            className={`d-flex flex-row justify-content-center align-items-center bg ${bgs} m-8`}
+          >
             <img
               src="https://assets.ccbp.in/frontend/react-js/google-search-icon.png"
               alt="search icon"
@@ -95,20 +83,21 @@ class GoogleSuggestions extends Component {
               type="search"
               className="inp"
               placeholder="Search Google"
-              onChange={this.fn}
-              value={suggestion}
+              onChange={fn}
+              value={search.suggestion}
             />
           </div>
-          {list.length > 0 ? (
-            <ul className={`over ${bor} border mt-0`}>
-              {list.map(e => (
-                <SuggestionItem val={e} val1={this.f2} key={e.id} />
+          {search.list.length > 0 ? (
+            <ul className="over bg-white ">
+              {search.list.map(e => (
+                <SuggestionItem val={e} val1={f2} key={e.id} />
               ))}
             </ul>
           ) : null}
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
+
 export default GoogleSuggestions
