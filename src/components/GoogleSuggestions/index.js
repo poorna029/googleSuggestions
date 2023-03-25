@@ -1,7 +1,6 @@
 // Write your code here
 import './index.css'
 import {Component} from 'react'
-import {Button} from 'react-bootstrap'
 import SuggestionItem from '../SuggestionItem/index'
 
 class GoogleSuggestions extends Component {
